@@ -81,10 +81,15 @@ export default function QueryTab() {
               <p className="text-xs font-medium text-gray-500 mb-2">Sources ({result.sources.length})</p>
               <div className="space-y-2">
                 {result.sources.map((s: any, i: number) => (
-                  <div key={i} className="text-xs text-gray-500 border-l-2 border-gray-200 pl-2">
-                    <span className="font-medium text-gray-700">{s.metadata?.source || s.metadata?.filename || 'unknown'}</span>
-                    {' — '}{(s.content || '').slice(0, 150)}...
-                  </div>
+                  <div className="rounded-2xl border border-[var(--border)] bg-[#fbfaf7] p-3">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
+                    {s.metadata?.source || s.metadata?.filename || 'unknown'}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">
+                    {(s.content || '').slice(0, 180)}...
+                  </p>
+                </div>
+
                 ))}
               </div>
             </div>
